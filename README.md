@@ -77,6 +77,114 @@ print(result)
 
 ---
 
+## Framework Integrations
+
+### LangChain
+
+```python
+from virisim import VirisimClient
+from langchain.tools import tool
+
+client = VirisimClient(api_key="sk-viri-xxx")
+
+@tool
+def audit_ai_output(input_text: str, output_text: str, policy: str = None) -> dict:
+    """Audit AI output for compliance before returning to user."""
+    return client.audit(
+        user_id="agent_001",
+        company_name="Acme Inc.",
+        use_case="general",
+        your_company_user_id="agent_001",
+        your_company_user_session_id="session_001",
+        model_version="gpt-5",
+        agent_tool="LangChain",
+        callback_url="https://your-domain.com/webhook",
+        policy=policy,
+        input={"value": input_text, "format": "text", "country": "US"},
+        output={"value": output_text, "format": "text", "country": "US"}
+    )
+    
+``` 
+### CrewAI
+
+```python
+from virisim import VirisimClient
+from crewai.tools import tool
+
+client = VirisimClient(api_key="sk-viri-xxx")
+
+@tool
+def audit_ai_output(input_text: str, output_text: str, policy: str = None) -> dict:
+    """Audit AI output for compliance before returning to user."""
+    return client.audit(
+        user_id="agent_001",
+        company_name="Acme Inc.",
+        use_case="general",
+        your_company_user_id="agent_001",
+        your_company_user_session_id="session_001",
+        model_version="gpt-5",
+        agent_tool="CrewAI",
+        callback_url="https://your-domain.com/webhook",
+        policy=policy,
+        input={"value": input_text, "format": "text", "country": "US"},
+        output={"value": output_text, "format": "text", "country": "US"}
+    )
+    
+``` 
+
+### OpenAI Agents SDK
+
+```python
+from virisim import VirisimClient
+from agents import function_tool
+
+client = VirisimClient(api_key="sk-viri-xxx")
+
+@function_tool
+def audit_ai_output(input_text: str, output_text: str, policy: str = None) -> dict:
+    """Audit AI output for compliance before returning to user."""
+    return client.audit(
+        user_id="agent_001",
+        company_name="Acme Inc.",
+        use_case="general",
+        your_company_user_id="agent_001",
+        your_company_user_session_id="session_001",
+        model_version="gpt-5",
+        agent_tool="OpenAI",
+        callback_url="https://your-domain.com/webhook",
+        policy=policy,
+        input={"value": input_text, "format": "text", "country": "US"},
+        output={"value": output_text, "format": "text", "country": "US"}
+    )
+    
+```  
+
+### Custom Python
+
+```python
+from virisim import VirisimClient
+
+client = VirisimClient(api_key="sk-viri-xxx")
+
+result = client.audit(
+    user_id="agent_001",
+    company_name="Acme Inc.",
+    use_case="general",
+    your_company_user_id="agent_001",
+    your_company_user_session_id="session_001",
+    model_version="gpt-5",
+    agent_tool="python-sdk",
+    callback_url="https://your-domain.com/webhook",
+    input={"value": input_text, "format": "text", "country": "US"},
+    output={"value": output_text, "format": "text", "country": "US"}
+)
+
+if result.get("verdict") == "Review needed":
+    return "Response blocked for compliance review."
+```  
+  
+ ---
+
 ## Requirements
 
 - Python 3.9+
