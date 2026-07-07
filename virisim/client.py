@@ -2,10 +2,12 @@ import requests
 from datetime import datetime, timezone
 from typing import TypedDict
 
+
 class Message(TypedDict):
     value: str
     format: str
     country: str
+
 
 class VirisimClient:
     """Official Python SDK for the ViriSIM Compliance API."""
@@ -33,7 +35,7 @@ class VirisimClient:
         output: Message,
         your_company_signature: str | None = None,
         your_company_signing_key_id: str | None = None,
-        agent_tool: str = "python-sdk",
+        agent_tool: str | None = None,
         callback_url: str | None = None,
         policy: str | None = None,
     ) -> dict:
@@ -53,16 +55,18 @@ class VirisimClient:
             "your_company_user_id": your_company_user_id,
             "your_company_user_session_id": your_company_user_session_id,
             "model_version": model_version,
-            "agent_tool": agent_tool,
-            "callback_url": callback_url,
-            "policy": policy,
             "input": input,
             "output": output,
         }
 
+        if agent_tool is not None:
+            payload["agent_tool"] = agent_tool
+        if callback_url is not None:
+            payload["callback_url"] = callback_url
+        if policy is not None:
+            payload["policy"] = policy
         if your_company_signature is not None:
             payload["your_company_signature"] = your_company_signature
-
         if your_company_signing_key_id is not None:
             payload["your_company_signing_key_id"] = your_company_signing_key_id
 
