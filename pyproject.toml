@@ -49,3 +49,6 @@ Homepage = "https://virideed.com"
 Documentation = "https://www.virideed.com/virisim/documentation/?search=agent-tool"
 Repository = "https://github.com/Virideed/virisim-python"
 Issues = "https://github.com/Virideed/virisim-python/issues"
+
+[tool.setuptools]
+packages = ["virisim"]
