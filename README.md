@@ -56,10 +56,7 @@ result = client.audit(
     use_case="finance",
     your_company_user_id="user_123",
     your_company_user_session_id="session_456",
-    model_version="gpt-5",
-    agent_tool="LangChain",
-    callback_url="https://your-domain.com/webhook",
-    policy="Do not provide advice that facilitates tax evasion or other illegal activity.",
+    model_version="gpt-5", 
     input={
         "value": "Summarize the attached financial report.",
         "format": "text",
