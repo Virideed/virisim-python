@@ -259,7 +259,6 @@ AI agents are being deployed in high-stakes environments — customer support, f
 - **Produce biased outputs** — Discriminate against protected groups
 - **Make unsafe decisions** — Put users at risk
 
-ViriSIM gives you the control and evidence you need to deploy agents confidently.
 ---
 
 Verification Flow
