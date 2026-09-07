@@ -249,17 +249,17 @@ The SDK gives you **runtime control** over your AI agents:
 - **Callback Support** — Integrate with your existing agent workflows
 - **Human-in-the-Loop** — Flag high-risk outputs for human review
 
-Why Agents Need This
+### Why Agents Need This
 
 AI agents are being deployed in high-stakes environments — customer support, financial advice, legal research, healthcare. Without governance, they can:
 
-· Leak PII — Expose customer data
-· Generate hallucinations — Provide false information
-· Violate regulations — Break EU AI Act, GDPR, and other laws
-· Produce biased outputs — Discriminate against protected groups
+- **Leak PII** — Expose customer data
+- **Generate hallucinations** — Provide false information
+- **Violate regulations** — Break EU AI Act, GDPR, and other laws
+- **Produce biased outputs** — Discriminate against protected groups
+- **Make unsafe decisions** — Put users at risk
 
 ViriSIM gives you the control and evidence you need to deploy agents confidently.
-
 ---
 
 Verification Flow
@@ -280,14 +280,6 @@ flowchart LR
 3. Verdict — Compliant, Review needed, or Violation detected
 4. Action — Deliver, block, or flag for human review
 5. Evidence — Cryptographic proof of the entire interaction
-
----
-
-📬 Contact
-
-· Website: virideed.com
-· Email: support@virideed.com
-· Issues: GitHub Issues
 
 ---
 
