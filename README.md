@@ -233,6 +233,98 @@ The SDK automatically constructs the payload, authenticates requests, and commun
 
 ---
 
-## License
+```markdown
+---
+
+## 📘 About ViriSIM
+
+### What This SDK Does
+
+ViriSIM is an **agent-native compliance tool** that sits between your AI agent and your users. It audits every AI input and output in real-time — checking for PII, regulatory violations, bias, hallucinations, safety risks, and policy violations — before they reach your users.
+
+### Agent Control
+
+The SDK gives you **runtime control** over your AI agents:
+
+- **Pre-Generation Guardrails** — Block unsafe inputs before they reach the model
+- **Post-Generation Validation** — Audit outputs before they reach users
+- **Policy Enforcement** — Apply custom policies to agent behavior
+- **Callback Support** — Integrate with your existing agent workflows
+- **Human-in-the-Loop** — Flag high-risk outputs for human review
+
+### Return Payload
+
+Every audit returns a comprehensive compliance verdict with cryptographic evidence:
+
+```json
+{
+  "verdict": "Compliant | Review needed | Violation detected",
+  "risk_score": 0.94,
+  "violations": [
+    {
+      "regulation": "EU AI Act",
+      "article": "Article 10",
+      "severity": "High",
+      "description": "Data governance requirement not met"
+    }
+  ],
+  "pii_detected": [
+    {
+      "type": "email",
+      "value": "user@example.com",
+      "confidence": 0.98
+    }
+  ],
+  "bias_detected": false,
+  "hallucination_detected": false,
+  "safety_issues": [],
+  "integrity_hash": "sha256:7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b",
+  "signature": "MEUCIQDx...",
+  "timestamp": "2026-09-07T12:00:00Z",
+  "captured_at": "2026-09-07T12:00:00.000Z"
+}
+```
+
+Why Agents Need This
+
+AI agents are being deployed in high-stakes environments — customer support, financial advice, legal research, healthcare. Without governance, they can:
+
+· Leak PII — Expose customer data
+· Generate hallucinations — Provide false information
+· Violate regulations — Break EU AI Act, GDPR, and other laws
+· Produce biased outputs — Discriminate against protected groups
+
+ViriSIM gives you the control and evidence you need to deploy agents confidently.
+
+---
+
+Verification Flow
+
+```mermaid
+flowchart LR
+    A[Agent Generates Output] --> B[ViriSIM Audits]
+    B --> C{Compliant?}
+    C -->|✅| D[Output Delivered to User]
+    C -->|❌| E[Blocked / Human Review]
+    B --> F[Cryptographic Evidence Created]
+    F --> G[Audit Log Stored]
+    G --> H[Regulator / Auditor Verifies]
+```
+
+1. Agent generates output — Your AI agent produces a response
+2. ViriSIM audits — Checks for PII, violations, bias, hallucinations, safety risks
+3. Verdict — Compliant, Review needed, or Violation detected
+4. Action — Deliver, block, or flag for human review
+5. Evidence — Cryptographic proof of the entire interaction
+
+---
+
+📬 Contact
+
+· Website: virideed.com
+· Email: support@virideed.com
+· Issues: GitHub Issues
+
+---
 
 MIT License
